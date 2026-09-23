@@ -8,12 +8,12 @@ package view;
  *
  * @author aluno.saolucas
  */
-public class TelaGerencia extends javax.swing.JPanel {
+public class TeladeLogin extends javax.swing.JPanel {
 
     /**
-     * Creates new form TelaGerencia
+     * Creates new form TeladeLogin
      */
-    public TelaGerencia() {
+    public TeladeLogin() {
         initComponents();
     }
 
@@ -30,11 +30,11 @@ public class TelaGerencia extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 855, Short.MAX_VALUE)
+            .addGap(0, 856, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 502, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
