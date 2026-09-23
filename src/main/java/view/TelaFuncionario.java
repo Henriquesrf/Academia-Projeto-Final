@@ -27,7 +27,7 @@ public class TelaFuncionario extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Tabela = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         Cliente = new javax.swing.JTextPane();
         campoCliente = new javax.swing.JTextField();
@@ -36,11 +36,11 @@ public class TelaFuncionario extends javax.swing.JPanel {
         jTextPane1 = new javax.swing.JTextPane();
         Plano = new javax.swing.JButton();
         Vender = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        Sair = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextPane2 = new javax.swing.JTextPane();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -51,7 +51,7 @@ public class TelaFuncionario extends javax.swing.JPanel {
                 "ID", "Cliente", "Plano", "Data", "Valor", "Pagamento"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(Tabela);
 
         Cliente.setText("Cliente: ");
         jScrollPane2.setViewportView(Cliente);
@@ -65,7 +65,7 @@ public class TelaFuncionario extends javax.swing.JPanel {
 
         Vender.setText("Registrar Vendas");
 
-        jButton4.setText("Sair");
+        Sair.setText("Sair");
 
         jTextPane2.setText("Vendas Recentes");
         jScrollPane4.setViewportView(jTextPane2);
@@ -76,9 +76,6 @@ public class TelaFuncionario extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,11 +92,15 @@ public class TelaFuncionario extends javax.swing.JPanel {
                                 .addComponent(Vender))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(410, 410, 410)))
                 .addContainerGap(346, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton4)
+                .addComponent(Sair)
                 .addGap(16, 16, 16))
         );
         layout.setVerticalGroup(
@@ -111,7 +112,7 @@ public class TelaFuncionario extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Plano)
                     .addComponent(Vender))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,7 +123,7 @@ public class TelaFuncionario extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
+                .addComponent(Sair)
                 .addGap(22, 22, 22))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -132,14 +133,14 @@ public class TelaFuncionario extends javax.swing.JPanel {
     private javax.swing.JButton Buscar;
     private javax.swing.JTextPane Cliente;
     private javax.swing.JButton Plano;
+    private javax.swing.JButton Sair;
+    private javax.swing.JTable Tabela;
     private javax.swing.JButton Vender;
     private javax.swing.JTextField campoCliente;
-    private javax.swing.JButton jButton4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
     // End of variables declaration//GEN-END:variables

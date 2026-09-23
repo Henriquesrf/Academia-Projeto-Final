@@ -26,19 +26,129 @@ public class TelaGerencia extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Dashgerencia = new javax.swing.JTextPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Tabelagerencia = new javax.swing.JTable();
+        Buscargerencia = new javax.swing.JButton();
+        campoClientegerencia = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        Clientegerencia = new javax.swing.JTextPane();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        Vendasrecentesgerencia = new javax.swing.JTextPane();
+        Vendergerencia = new javax.swing.JButton();
+        Planogerencia = new javax.swing.JButton();
+        Funcionarios = new javax.swing.JButton();
+        Sairgerencia = new javax.swing.JButton();
+
+        Dashgerencia.setText("Dashboard");
+        jScrollPane1.setViewportView(Dashgerencia);
+
+        Tabelagerencia.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Cliente", "Plano", "Data", "Valor", "Pagamento"
+            }
+        ));
+        jScrollPane2.setViewportView(Tabelagerencia);
+
+        Buscargerencia.setText("Buscar");
+
+        Clientegerencia.setText("Cliente: ");
+        jScrollPane3.setViewportView(Clientegerencia);
+
+        Vendasrecentesgerencia.setText("Vendas Recentes");
+        jScrollPane4.setViewportView(Vendasrecentesgerencia);
+
+        Vendergerencia.setText("Registrar Vendas");
+
+        Planogerencia.setText("Planos");
+
+        Funcionarios.setText("Funcionarios");
+
+        Sairgerencia.setText("Sair");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 855, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(campoClientegerencia, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(Buscargerencia))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Planogerencia)
+                                .addGap(18, 18, 18)
+                                .addComponent(Vendergerencia)
+                                .addGap(18, 18, 18)
+                                .addComponent(Funcionarios))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 248, Short.MAX_VALUE)
+                                .addComponent(Sairgerencia)))))
+                .addGap(31, 31, 31))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Planogerencia)
+                    .addComponent(Vendergerencia)
+                    .addComponent(Funcionarios))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(campoClientegerencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Buscargerencia)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(Sairgerencia)
+                        .addGap(14, 14, 14))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Buscargerencia;
+    private javax.swing.JTextPane Clientegerencia;
+    private javax.swing.JTextPane Dashgerencia;
+    private javax.swing.JButton Funcionarios;
+    private javax.swing.JButton Planogerencia;
+    private javax.swing.JButton Sairgerencia;
+    private javax.swing.JTable Tabelagerencia;
+    private javax.swing.JTextPane Vendasrecentesgerencia;
+    private javax.swing.JButton Vendergerencia;
+    private javax.swing.JTextField campoClientegerencia;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     // End of variables declaration//GEN-END:variables
 }
