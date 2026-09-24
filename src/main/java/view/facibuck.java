@@ -4,6 +4,7 @@
  */
 package view;
 
+import dao.FuncionarioDAO;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -172,37 +173,14 @@ public class facibuck extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     private void entrar() {
-        String usuario = usuariofield.getText();
-        char[] senha = senhafield.getText().toCharArray();
         try {
-            if (usuario.trim().isEmpty() || "Digite seu usuario".equals(usuario)
-                    || senha.length == 0 || "Digite sua senha".equals(senhafield.getText())) {
-                JOptionPane.showMessageDialog(this, "Preencha o usuário e a senha.");
-                return;
-            }
-            seguranca.Sessao sessao = seguranca.Sessao.autenticar(usuario, senha);
-            if (sessao == null) {
-                JOptionPane.showMessageDialog(this, "Usuário ou senha incorretos.",
-                        "Login não realizado", JOptionPane.ERROR_MESSAGE);
-                senhafield.requestFocusInWindow();
-                return;
-            }
-            try {
-                dao.Conexao.inicializarBanco();
-                Inventario cadastro = new Inventario(sessao);
-                JOptionPane.showMessageDialog(this, "Login realizado com sucesso");
-                cadastro.setLocationRelativeTo(null);
-                cadastro.setVisible(true);
-                dispose();
-            } catch (RuntimeException erro) {
-                JOptionPane.showMessageDialog(this,
-                        "Não foi possível abrir o cadastro: " + erro.getMessage(),
-                        "Erro", JOptionPane.ERROR_MESSAGE);
-            }
-        } finally {
-            java.util.Arrays.fill(senha, '\0');
-            senhafield.setText("");
-            senhafield.setEchoChar('*');
+            String usuario = usuariofield.getText();
+            String senha = senhafield.getText();
+            FuncionarioDAO func = new FuncionarioDAO();
+          //  func.busca_func(usuario);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Deu merda!" + e.getMessage() );
         }
     }
 

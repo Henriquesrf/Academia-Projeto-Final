@@ -1,9 +1,12 @@
 package com.mycompany.academia;
 
+import dao.Conexao;
+
 
 public class Academia {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-    }
+        Conexao.inicializarBanco();
+
+  }
 }
