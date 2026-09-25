@@ -120,7 +120,7 @@
                 <Column editable="true" title="Plano" type="java.lang.Object"/>
                 <Column editable="true" title="Data" type="java.lang.Object"/>
                 <Column editable="true" title="Valor" type="java.lang.Object"/>
-                <Column editable="true" title="Pagamento" type="java.lang.Object"/>
+                <Column editable="true" title="Funcionário" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">

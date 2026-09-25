@@ -13,8 +13,54 @@ public class TelaFuncionario extends javax.swing.JPanel {
     /**
      * Creates new form TelaFuncionario
      */
+    private model.Funcionario funcionarioLogado;
+
     public TelaFuncionario() {
         initComponents();
+        configurar();
+    }
+
+    public TelaFuncionario(model.Funcionario funcionario) {
+        this.funcionarioLogado = funcionario;
+        initComponents();
+        configurar();
+    }
+
+    private void configurar() {
+        Buscar.addActionListener(e -> atualizarTabela());
+        campoCliente.addActionListener(e -> atualizarTabela());
+        Plano.addActionListener(e -> abrirCadastro("Planos"));
+        Vender.addActionListener(e -> abrirCadastro("Vendas"));
+        Sair.addActionListener(e -> {
+            java.awt.Window janela = javax.swing.SwingUtilities.getWindowAncestor(this);
+            if (janela != null) janela.dispose();
+            new facibuck().setVisible(true);
+        });
+        Tabela.setAutoCreateRowSorter(true);
+        Cliente.setEditable(false);
+        jTextPane1.setEditable(false);
+        jTextPane2.setEditable(false);
+        atualizarTabela();
+    }
+
+    private void abrirCadastro(String tipo) {
+        try {
+            new Cadastro(javax.swing.SwingUtilities.getWindowAncestor(this), tipo, funcionarioLogado, false).setVisible(true);
+            atualizarTabela();
+        } catch (Exception e) { javax.swing.JOptionPane.showMessageDialog(this, e.getMessage()); }
+    }
+
+    public void atualizarTabela() {
+        try {
+            javax.swing.table.DefaultTableModel m = new javax.swing.table.DefaultTableModel(
+                    new String[]{"ID", "Cliente", "Plano", "Data", "Valor", "Funcionário"}, 0) {
+                @Override public boolean isCellEditable(int linha, int coluna) { return false; }
+            };
+            for (Object[] linha : new dao.GerenciaDAO().listarVendas(campoCliente.getText().trim())) m.addRow(linha);
+            Tabela.setModel(m);
+        } catch (java.sql.SQLException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Erro ao listar vendas: " + e.getMessage());
+        }
     }
 
     /**
@@ -48,7 +94,7 @@ public class TelaFuncionario extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Cliente", "Plano", "Data", "Valor", "Pagamento"
+                "ID", "Cliente", "Plano", "Data", "Valor", "Funcionário"
             }
         ));
         jScrollPane1.setViewportView(Tabela);

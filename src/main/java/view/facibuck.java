@@ -6,7 +6,7 @@ package view;
 
 import dao.FuncionarioDAO;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -20,7 +20,21 @@ public class facibuck extends javax.swing.JFrame {
      * Creates new form facibuck
      */
     public facibuck() {
+        dao.Conexao.inicializarBanco();
         initComponents();
+        setLocationRelativeTo(null);
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            try {
+                if (new FuncionarioDAO().listar().isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "Cadastre o primeiro gerente para acessar a academia.");
+                    new Cadastro(this, "Funcionários", null, true).setVisible(true);
+                    if (new FuncionarioDAO().listar().isEmpty()) dispose();
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Erro ao iniciar: " + e.getMessage());
+                dispose();
+            }
+        });
         getRootPane().setDefaultButton(jButton1);
         usuariofield.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override public void focusGained(java.awt.event.FocusEvent evt) {
@@ -174,13 +188,16 @@ public class facibuck extends javax.swing.JFrame {
      */
     private void entrar() {
         try {
-            String usuario = usuariofield.getText();
-            String senha = senhafield.getText();
-            FuncionarioDAO func = new FuncionarioDAO();
-          //  func.busca_func(usuario);
-            
+            model.Funcionario funcionario = new FuncionarioDAO().autenticar(
+                    usuariofield.getText().trim(), senhafield.getText());
+            if (funcionario == null) {
+                JOptionPane.showMessageDialog(this, "Login ou senha inválidos, ou funcionário inativo.");
+                return;
+            }
+            new JanelaPrincipal(funcionario).setVisible(true);
+            dispose();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Deu merda!" + e.getMessage() );
+            JOptionPane.showMessageDialog(this, "Não foi possível entrar: " + e.getMessage());
         }
     }
 

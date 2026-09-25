@@ -13,8 +13,55 @@ public class TelaGerencia extends javax.swing.JPanel {
     /**
      * Creates new form TelaGerencia
      */
+    private model.Funcionario funcionarioLogado;
+
     public TelaGerencia() {
         initComponents();
+        configurar();
+    }
+
+    public TelaGerencia(model.Funcionario funcionario) {
+        this.funcionarioLogado = funcionario;
+        initComponents();
+        configurar();
+    }
+
+    private void configurar() {
+        Buscargerencia.addActionListener(e -> atualizarTabela());
+        campoClientegerencia.addActionListener(e -> atualizarTabela());
+        Planogerencia.addActionListener(e -> abrirCadastro("Planos"));
+        Vendergerencia.addActionListener(e -> abrirCadastro("Vendas"));
+        Sairgerencia.addActionListener(e -> {
+            java.awt.Window janela = javax.swing.SwingUtilities.getWindowAncestor(this);
+            if (janela != null) janela.dispose();
+            new facibuck().setVisible(true);
+        });
+        Tabelagerencia.setAutoCreateRowSorter(true);
+        Funcionarios.addActionListener(e -> abrirCadastro("Funcionários"));
+        Dashgerencia.setEditable(false);
+        Clientegerencia.setEditable(false);
+        Vendasrecentesgerencia.setEditable(false);
+        atualizarTabela();
+    }
+
+    private void abrirCadastro(String tipo) {
+        try {
+            new Cadastro(javax.swing.SwingUtilities.getWindowAncestor(this), tipo, funcionarioLogado, false).setVisible(true);
+            atualizarTabela();
+        } catch (Exception e) { javax.swing.JOptionPane.showMessageDialog(this, e.getMessage()); }
+    }
+
+    public void atualizarTabela() {
+        try {
+            javax.swing.table.DefaultTableModel m = new javax.swing.table.DefaultTableModel(
+                    new String[]{"ID", "Cliente", "Plano", "Data", "Valor", "Funcionário"}, 0) {
+                @Override public boolean isCellEditable(int linha, int coluna) { return false; }
+            };
+            for (Object[] linha : new dao.GerenciaDAO().listarVendas(campoClientegerencia.getText().trim())) m.addRow(linha);
+            Tabelagerencia.setModel(m);
+        } catch (java.sql.SQLException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Erro ao listar vendas: " + e.getMessage());
+        }
     }
 
     /**
@@ -52,7 +99,7 @@ public class TelaGerencia extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Cliente", "Plano", "Data", "Valor", "Pagamento"
+                "ID", "Cliente", "Plano", "Data", "Valor", "Funcionário"
             }
         ));
         jScrollPane2.setViewportView(Tabelagerencia);
